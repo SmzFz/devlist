@@ -7,7 +7,7 @@ import TaskItem from "../TaskItem/TaskItem";
 const CompletedTasks = () => {
     const  { taskList } = useContext(AppContext);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} draggable="true">
         <Title iconNome="completed" text="Tarefas concluidas" />
 
         <ul className={styles.taskList}>

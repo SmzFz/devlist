@@ -3,11 +3,16 @@ import checkedIcon from "../../assets/icon-checked.svg";
 import { useContext } from "react";
 import { AppContext } from "../../AppContent";
 
+
 const TaskItem = ({ task }) => {
   const { handleTaskEdit, handleTaskDelete } = useContext(AppContext);
 
+
+
   return (
-    <li>
+    <li className={styles.container}style={{
+      background: `${task.done ? "rgba(47,90,255,0.25)" : "#151a37"}`,
+     border: `1px solid ${task.done ? "#2f5aff" : "#24293f"}`}}>
       <label>
         <input
           className={styles.inputCheckbox}
@@ -17,11 +22,11 @@ const TaskItem = ({ task }) => {
         />
         <div
           className={`${styles.customCheckbox} ${
-            !task.done && styles.customCheckboxChecked
+            !task.done && styles.customCheckboxCheck
           }`}
         >
           {task.done && (
-            <div className={styles.customCheckbox}>
+            <div className={styles.customCheckboxChecked}>
               <img src={checkedIcon} alt="Icone de marcação" />
             </div>
           )}

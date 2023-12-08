@@ -7,11 +7,16 @@ import Title from "../Title/Title"
 
 const TodayTask = () => {
     const {taskList, progressBarValue} = useContext(AppContext)
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} draggable="true"
+    style={{
+      marginTop: `${progressBarValue === 100 ? "-107px" : "0" }`
+    }}
+    >
        <Title iconName={"list"} text={"Tarefas de hoje"}/>
        {progressBarValue === 100 || taskList.length === 0 ? (
-<span className={styles.todayTaskMessage}>Você não tem tarefas disponiveis</span> 
+<span className={styles.todayTasksMessage}>Você não tem tarefas disponiveis</span> 
        ) : (
         <ul className={styles.taskList}>
             {taskList.map(
